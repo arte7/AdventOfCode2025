@@ -32,24 +32,16 @@ file.each_line do |line|
   next if steps.zero?
 
   if dir == 'L'
-    if position != 0 && steps > position
-      counter += 1
-    end
+    counter += 1 if position != 0 && steps > position
     position = array[(position - steps)]
-    puts array[position]
   elsif dir == 'R'
     position += steps
     if position > 99
       position -= 100
-      if position != 0
-        counter += 1
-      end
+      counter += 1 if position != 0
     end
-    puts array[position]
   end
-  if array[position].zero?
-    counter += 1
-  end
+  counter += 1 if array[position].zero?
 end
 puts "end counter #{counter}"
 

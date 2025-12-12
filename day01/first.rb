@@ -28,19 +28,13 @@ file.each_line do |line|
   while steps > 99
     steps -= 100
   end
-  if dir == "L"
+  if dir == 'L'
     position = array[(position - steps)]
-    puts array[position]
-  elsif dir == "R"
+  elsif dir == 'R'
     position += steps
-    if position > 99
-      position -= 100
-    end
-    puts array[position]
+    position -= 100 if position > 99
   end
-  if array[position].zero?
-    counter += 1
-  end
+  counter += 1 if array[position].zero?
 end
 puts "end counter #{counter}"
 
